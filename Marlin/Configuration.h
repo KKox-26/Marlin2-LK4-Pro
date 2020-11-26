@@ -104,7 +104,7 @@
     #else //U30_Pro
       #define U30_Pro
       #define U30_Pro_AutoBed
-      //#define LGT_ESP
+      #define LGT_ESP
     #endif
 #endif // LGT_MAC
 /**
@@ -141,7 +141,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_13_EFB
+  #define MOTHERBOARD BOARD_LONGER_LKx_PRO
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu

@@ -430,7 +430,7 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-#define FAN_MIN_PWM 55 // the real min is 50, keep a margin of 5 
+#define FAN_MIN_PWM 55 // the real min is 50, keep a margin of 5
 //#define FAN_MAX_PWM 128
 
 /**
@@ -1181,11 +1181,11 @@
   // Since the FAT gets out of order with usage, SDCARD_SORT_ALPHA is recommended.
   #define SDCARD_RATHERRECENTFIRST
 
-  #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing // TODO: see if this should be disabled
+  #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
 
   //#define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
 
-  #define EVENT_GCODE_SD_ABORT "G27\nM84"//"G28XY"      // G-code to run on SD Abort Print (e.g., "G28XY" or "G27") // TODO: see if this should be disabled
+  #define EVENT_GCODE_SD_ABORT "G27P2\nM84"      // G-code to run on SD Abort Print (e.g., "G28XY" or "G27")
 
   #if ENABLED(PRINTER_EVENT_LEDS)
     #define PE_LEDS_COMPLETED_TIME  (30*60) // (seconds) Time to keep the LED "done" color before restoring normal illumination

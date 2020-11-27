@@ -95,18 +95,16 @@
 
 // @section machine
 
-#define LGT_MAC
-#ifdef LGT_MAC
-  //U20_Pro
-  //#define U20_Pro
-    #ifdef U20_Pro
-      #define U20_Pro_AutoBed
-    #else //U30_Pro
-      #define U30_Pro
-      #define U30_Pro_AutoBed
-      #define LGT_ESP
-    #endif
-#endif // LGT_MAC
+//U20_Pro
+//#define U20_Pro
+#ifdef U20_Pro
+  #define U20_Pro_AutoBed
+#else //U30_Pro
+  #define U30_Pro
+  #define U30_Pro_AutoBed
+  #define LGT_ESP
+#endif
+
 /**
  * Select the serial port on the board to use for communication with the host.
  * This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -1237,11 +1235,7 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-#ifdef LGT_MAC
-  #define FILAMENT_RUNOUT_SENSOR
-#else
-  //#define FILAMENT_RUNOUT_SENSOR
-#endif
+#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
@@ -1630,11 +1624,7 @@
  *    P1  Raise the nozzle always to Z-park height.
  *    P2  Raise the nozzle by Z-park amount, limited to Z_MAX_POS.
  */
-#ifdef LGT_MAC
-  #define NOZZLE_PARK_FEATURE
-#else
-  //#define NOZZLE_PARK_FEATURE
-#endif // LGT_MAC
+#define NOZZLE_PARK_FEATURE
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
@@ -1835,11 +1825,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#ifdef LGT_MAC
-  #define SDSUPPORT
-#else
-  //#define SDSUPPORT
-#endif
+#define SDSUPPORT
 
 /**
  * SD CARD: SPI SPEED
@@ -2284,9 +2270,7 @@
 //
 // Alternative DGUS LCD firmware
 //
-#ifdef LGT_MAC
-  #define DGUS_LCD_UI_RELOADED
-#endif // LGT_MAC
+#define DGUS_LCD_UI_RELOADED
 
 //
 // Touch-screen LCD for Malyan M200/M300 printers

@@ -21,12 +21,14 @@
  */
 #pragma once
 
+#if HOTENDS > 1 || E_STEPPERS > 1
+  #error "LKx PRO motherboard supports only one hotend and one E-stepper."
+#endif
+
 // Custom flags and defines for the build
 //#define BOARD_CUSTOM_BUILD_FLAGS -D__FOO__
 
-#ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "LONGER LKx PRO"
-#endif
+#define BOARD_INFO_NAME "LGT KIT V1.0"
 
 //
 // Misc. Functions

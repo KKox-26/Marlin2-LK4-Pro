@@ -102,7 +102,6 @@
 #else //U30_Pro
   #define U30_Pro
   #define U30_Pro_AutoBed
-  #define LGT_ESP
 #endif
 
 /**
@@ -119,9 +118,7 @@
  * Select a secondary serial port on the board to use for communication with the host.
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#ifdef LGT_ESP
-  #define SERIAL_PORT_2 3
-#endif // LGT_ESP
+//#define SERIAL_PORT_2 3
 
 /**
  * This setting determines the communication speed of the printer.

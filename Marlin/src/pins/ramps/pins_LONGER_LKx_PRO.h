@@ -25,6 +25,17 @@
   #error "LKx PRO motherboard supports only one hotend and one E-stepper."
 #endif
 
+#if SERIAL_PORT == 1 || SERIAL_PORT_2 == 1
+  #warning "Serial 1 is originally reserved to DGUS LCD"
+#endif
+#if SERIAL_PORT == 2 || SERIAL_PORT_2 == 2
+  #warning "Serial 2 has not a connector. To get it working, hardware changes are required."
+#endif
+#if SERIAL_PORT == 3 || SERIAL_PORT_2 == 3
+  #define CHANGE_Y_LIMIT_PINS
+  #warning "Serial 3 is originally reserved to Y limit switches. To get it working, hardware changes are required."
+#endif
+
 // Custom flags and defines for the build
 //#define BOARD_CUSTOM_BUILD_FLAGS -D__FOO__
 
@@ -81,18 +92,18 @@
   #undef Z_MAX_PIN
 #endif
 
-#ifndef LGT_ESP
+#ifndef CHANGE_Y_LIMIT_PINS
   #define Y_MIN_PIN                           14
   #define Y_MAX_PIN                           15
 #else
   #define Y_MIN_PIN                           37
-#endif // !LGT_ESP
+#endif
 
 #ifndef U20_Pro_AutoBed
   #define Z_MIN_PIN                           35
-  #ifndef LGT_ESP
+  #ifndef CHANGE_Y_LIMIT_PINS
     #define Z_MAX_PIN                         37
-  #endif // !LGT_ESP
+  #endif
 #else
   #define Z_MIN_PIN                           11
   #define Z_MAX_PIN                           37
@@ -133,4 +144,8 @@
 //
 #ifdef E_MUX2_PIN
   #undef E_MUX2_PIN
+#endif
+
+#ifdef CHANGE_Y_LIMIT_PINS
+  #undef CHANGE_Y_LIMIT_PINS
 #endif

@@ -25,6 +25,10 @@
  * Longer3D LK1/LK4/LK5 Pro board pin assignments
  */
 
+#ifndef BOARD_LONGER3D_LK1_PRO
+  #error "BOARD_LONGER3D_LK1_PRO no longer defined. Remember to change all MB(LONGER3D_LK1_PRO) occurences."
+#endif
+
 #if NOT_TARGET(__AVR_ATmega2560__)
   #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
 #elif HOTENDS > 1 || E_STEPPERS > 1
@@ -75,7 +79,7 @@
   #undef SERVO3_PIN
 #endif
 
-#ifndef LK1_PRO_ABL
+#if !MB(LONGER3D_LK1_PRO)
   #define SERVO0_PIN                           7
 #endif
 
@@ -105,7 +109,7 @@
   #define Y_MIN_PIN                           37
 #endif
 
-#ifndef LK1_PRO_ABL
+#if !MB(LONGER3D_LK1_PRO)
   #define Z_MIN_PIN                           35
   #ifndef CHANGE_Y_LIMIT_PINS
     #define Z_MAX_PIN                         37

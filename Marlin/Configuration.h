@@ -136,7 +136,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_LONGER_LKx_PRO
+  #define MOTHERBOARD BOARD_LONGER3D_LKx_PRO
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu

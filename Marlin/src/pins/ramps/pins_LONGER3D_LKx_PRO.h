@@ -21,12 +21,18 @@
  */
 #pragma once
 
-#if HOTENDS > 1 || E_STEPPERS > 1
-  #error "LKx PRO motherboard supports only one hotend and one E-stepper."
+/**
+ * Longer3D LK1/LK4/LK5 Pro board pin assignments
+ */
+
+#if NOT_TARGET(__AVR_ATmega2560__)
+  #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
+#elif HOTENDS > 1 || E_STEPPERS > 1
+  #error "Longer3D LGT KIT V1.0 board only supports 1 hotend / E-stepper. Comment out this line to continue."
 #endif
 
 #if SERIAL_PORT == 1 || SERIAL_PORT_2 == 1
-  #warning "Serial 1 is originally reserved to DGUS LCD"
+  #warning "Serial 1 is originally reserved to DGUS LCD."
 #endif
 #if SERIAL_PORT == 2 || SERIAL_PORT_2 == 2
   #warning "Serial 2 has not a connector. To get it working, hardware changes are required."
@@ -69,9 +75,9 @@
   #undef SERVO3_PIN
 #endif
 
-#ifndef U20_Pro_AutoBed
+#ifndef LK1_PRO_ABL
   #define SERVO0_PIN                           7
-#endif // !U20_Pro_AutoBed
+#endif
 
 //
 // Limit Switches
@@ -99,7 +105,7 @@
   #define Y_MIN_PIN                           37
 #endif
 
-#ifndef U20_Pro_AutoBed
+#ifndef LK1_PRO_ABL
   #define Z_MIN_PIN                           35
   #ifndef CHANGE_Y_LIMIT_PINS
     #define Z_MAX_PIN                         37
@@ -107,7 +113,7 @@
 #else
   #define Z_MIN_PIN                           11
   #define Z_MAX_PIN                           37
-#endif // !U20_Pro_AutoBed
+#endif
 
 //
 // Z Probe (when not Z_MIN_PIN)

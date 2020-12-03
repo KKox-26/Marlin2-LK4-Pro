@@ -1299,6 +1299,7 @@
 #if ENABLED(U20_Pro_AutoBed)
   #define AUTO_BED_LEVELING_BILINEAR
 #elif ENABLED(U30_Pro_AutoBed)
+  //#define AUTO_BED_LEVELING_BILINEAR
   #define AUTO_BED_LEVELING_UBL
 #endif
 //#define AUTO_BED_LEVELING_UBL
@@ -1352,24 +1353,25 @@
 
   // Set the number of grid points per dimension.
   #if EITHER(U20_Pro_AutoBed, U30_Pro_AutoBed) //TODO, prima c'era un || tra due ENABLED(), vedere se va così
-    #define GRID_MAX_POINTS_X 4 // For U30-U30 Pro 3 should be acceptable if we want to save time
+    #define GRID_MAX_POINTS_X 5 // For U30-U30 Pro 3 should be acceptable if we want to save time
   #else
     //#define GRID_MAX_POINTS_X 3
   #endif
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  //TODO: check if this is really necessary. In original Configuration.h example they miss
+  // NOTE: In original Longer3D Configuration.h example they miss. Probably not necessary.
   // Set the boundaries for probing (where the probe can reach).
+  // These now are in Configuration_adv.h
   #if ENABLED(U30_Pro_AutoBed)
-    #define MIN_PROBE_EDGE_LEFT  15
-    #define MIN_PROBE_EDGE_RIGHT 180
-    #define MIN_PROBE_EDGE_FRONT 15
-    #define MIN_PROBE_EDGE_BACK  205
+    // #define PROBING_MARGIN_LEFT  15
+    // #define PROBING_MARGIN_RIGHT 180
+    // #define PROBING_MARGIN_FRONT 15
+    // #define PROBING_MARGIN_BACK  205
   #elif ENABLED(U20_Pro_AutoBed)
-    #define MIN_PROBE_EDGE_LEFT  50
-    #define MIN_PROBE_EDGE_RIGHT 210
-    #define MIN_PROBE_EDGE_FRONT 47
-    #define MIN_PROBE_EDGE_BACK  247
+    // #define PROBING_MARGIN_LEFT  50
+    // #define PROBING_MARGIN_RIGHT 210
+    // #define PROBING_MARGIN_FRONT 47
+    // #define PROBING_MARGIN_BACK  247
   #endif
   
   // Probe along the Y axis, advancing X after each column

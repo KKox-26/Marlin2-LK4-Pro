@@ -101,7 +101,7 @@
   #define U20_Pro_AutoBed
 #else //U30_Pro
   #define U30_Pro
-  #define U30_Pro_AutoBed
+  //#define U30_Pro_AutoBed
 #endif
 
 /**
@@ -762,8 +762,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80.4, 400, 439.75/*96*/ }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 96 /*92.599*/ }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -897,14 +896,16 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-//#define PROBE_MANUALLY
-//#define MANUAL_PROBE_START_Z 0.2
+#if !EITHER(U20_Pro_AutoBed, U30_Pro_AutoBed)
+  //#define PROBE_MANUALLY
+  //#define MANUAL_PROBE_START_Z 0.2
+#endif
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-#if ENABLED (U20_Pro_AutoBed)
+#if ENABLED(U20_Pro_AutoBed)
   #define FIX_MOUNTED_PROBE
 #else
   //#define FIX_MOUNTED_PROBE
@@ -1182,8 +1183,8 @@
   #define Z_MAX_POS 400
 #else  //U30_Pro
   // The size of the print bed
-  #define X_BED_SIZE 229 //228.5
-  #define Y_BED_SIZE 235 //230 // Le clip occupano 10mm per parte. Aggiungere poi 2mm di sicurezza perchè il nozzle non sbatta. Di tutto questo se ne occupa il profilo Ender 3 Cura
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
 
   // Travel limits (mm) after homing, corresponding to endstop positions.
   #define X_MIN_POS 0

@@ -762,7 +762,6 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80.4, 400, 439.75/*96*/ }
 
 /**
@@ -904,7 +903,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-#if ENABLED (U20_Pro_AutoBed)
+#if ENABLED(U20_Pro_AutoBed)
   #define FIX_MOUNTED_PROBE
 #else
   //#define FIX_MOUNTED_PROBE

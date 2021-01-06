@@ -100,8 +100,7 @@ void DGUSScreenHandler::Init() {
   dgusdisplay.InitDisplay();
 
   // Show firmware retract button, if available
-  dgusdisplay.WriteVariable(VP_FWRETRACT_NAV_BUTTON_ICON, TERN(FWRETRACT, ICON_FWRETRACT_NAV_AVAILABLE, ICON_FWRETRACT_NAV_UN
-  AVAILABLE));
+  dgusdisplay.WriteVariable(VP_FWRETRACT_NAV_BUTTON_ICON, TERN(FWRETRACT, ICON_FWRETRACT_NAV_AVAILABLE, ICON_FWRETRACT_NAV_UNAVAILABLE));
 }
 
 void DGUSScreenHandler::RequestSaveSettings() {
